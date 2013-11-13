@@ -2,7 +2,6 @@
 title: Joomla World Conference 2013 Notes
 layout: post
 description: Random notes from the 2013 Joomla World Conference
-comments: enabled
 ---
 
 Notes from Joomla! World Conference 2013, November 8-10, 2013, Boston, Massachusetts, USA
