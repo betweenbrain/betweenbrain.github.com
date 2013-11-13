@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>reveal.js - The HTML Presentation Framework</title>
+
+	<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+	<meta name="author" content="Hakim El Hattab">
+
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+	<link rel="stylesheet" href="css/reveal.min.css">
+	<link rel="stylesheet" href="css/theme/default.css" id="theme">
+	<link rel="stylesheet" href="css/theme/betweenbrain.css">
+
+	<!-- For syntax highlighting -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+	<script>
+		document.write('<link rel="stylesheet" href="css/print/' + ( window.location.search.match(/print-pdf/gi) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">');
+	</script>
+
+	<!--[if lt IE 9]>
+	<script src="lib/js/html5shiv.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+<section>
+	<h1>Intro Joomla! 3 Custom Templates</h1>
+	<img class="logo clean" src="images/logo.png" />
+	<a rel="author" href="https://twitter.com/betweenbrain">Matt Thomas</a>
+	<a href="http://betweenbrain.com/talks/jui">http://betweenbrain.com/talks/jui</a>
+</section>
+
+<section>
+	<h2>Today's Scope</h2>
+	<p>Basic introduction to get started with creating custom Joomla 3 templates by using the <em>JUI</em>.</p>
+</section>
+
+<section>
+	<section>
+		<h2>The JUI?</h2>
+		<small>No, not the Joomla Jedi</small>
+		<img class="logo clean" src="images/Old_jedi_face-off_(4020904187).jpg" />
+		<small>Source:
+			<a href="http://commons.wikimedia.org/wiki/File:Old_jedi_face-off_(4020904187).jpg">Wikimedia Commons</a>
+		</small>
+	</section>
+
+	<section>
+		<h2>Joomla User Interface Library</h2>
+		<p>A UI library built on Bootstrap for developers to rapidly deploy modern standardized extensions.</p>
+		<small>Source: <a href="http://jui.kyleledbetter.com/">jui.kyleledbetter.com</a></small>
+		<p>Mostly CSS and jQuery JavaScript.</p>
+	</section>
+
+	<section>
+		<h2>JUI Features
+			<small>(select)</small>
+		</h2>
+		<ul>
+			<li>jQuery / jQuery UI</li>
+			<ul>
+				<li>Chosen (transforms select boxes)</li>
+				<li>Sortable (drag and drop)</li>
+				<li>Icomoon IE6-7 support</li>
+			</ul>
+			<li>Bootstrap</li>
+			<ul>
+				<li>Normalize.css</li>
+				<li>(Responsive) Grid System</li>
+				<li>Responsive utility classes</li>
+				<li>Typography</li>
+				<li>Forms</li>
+				<li>Dropdowns</li>
+				<li>Button groups</li>
+				<li>Button dropdowns</li>
+				<li>Navs</li>
+				<li>Navbar</li>
+				<li>Breadcrumbs</li>
+				<li>Pagination</li>
+				<li>Labels and badges</li>
+				<li>Typography</li>
+				<li>Thumbnails</li>
+				<li>Alerts</li>
+				<li>Progress bars</li>
+				<li>Media object</li>
+				<li>and more...</li>
+
+			</ul>
+			<li>Icomoon Font Icons</li>
+			<li>LESS</li>
+		</ul>
+	</section>
+
+	<section>
+		<h2>Why use the JUI?</h2>
+		<ul>
+			<li>Standardized responsive markup</li>
+			<li>Used throughout all of Joomla 3 (font- and back-end)</li>
+			<li>Consistent user experience</li>
+			<li>Helps developers (like me) without a sense of design</li>
+			<li>Maximize extension compatibility, fewer JS/CSS conflicts</li>
+			<li>Decrease development time</li>
+		</ul>
+	</section>
+	<section>
+
+		<h2>Paradigm shift</h2>
+		<p>New Workflow: CSS -> HTML -> PHP</p>
+		<small>Source:
+			<a href="https://twitter.com/kyleledbetter/status/238819051391041536">Twitter: Kyle Ledbetter</a>
+		</small>
+	</section>
+
+	<section>
+		<h2>Basic fluid grid HTML</h2>
+				<pre><code class="html">&lt;div class="row-fluid"&gt;
+	&lt;div class="span4"&gt;...&lt;/div&gt;
+	&lt;div class="span8"&gt;...&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+		<small>Source:
+			<a href="http://twitter.github.io/bootstrap/scaffolding.html#fluidGridSystem">Bootstrap Documentation: Fluid grid system</a>
+		</small>
+	</section>
+
+	<section>
+		<h2>Basic navbar</h2>
+		<img src="images/basic-navbar.jpg"/>
+				<pre><code class="html">&lt;div class="navbar"&gt;
+  &lt;div class="navbar-inner"&gt;
+	&lt;a class="brand" href="#"&gt;Title&lt;/a&gt;
+	&lt;ul class="nav"&gt;
+	  &lt;li class="active"&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+	  &lt;li&gt;&lt;a href="#"&gt;Link&lt;/a&gt;&lt;/li&gt;
+	  &lt;li&gt;&lt;a href="#"&gt;Link&lt;/a&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+		<small>Source:
+			<a href="http://twitter.github.io/bootstrap/components.html#navbar">Bootstrap Documentation: Navbar</a>
+		</small>
+	</section>
+
+</section>
+
+<section>
+	<section>
+		<h2>Loading the JUI</h2>
+		<ul>
+			<li>The easy way</li>
+			<li>The LESS easy way</li>
+		</ul>
+	</section>
+	<section>
+		<h2>The One-liner</h2>
+				<pre><code class="php">
+JHtml::_('bootstrap.loadCss');
+				</code></pre>
+		<p>Load core Bootstrap CSS and Bootstrap bug fixes from /media/jui/css/ (bootstrap.min.css, bootstrap-responsive.min.css, bootstrap-extended.css)</p>
+	</section>
+
+	<section>
+		<h2>Using Less</h2>
+		<p>CSS Pre-processor to compile multiple style sheets into one.</p>
+		<small>(Go see Andrea's talk)</small>
+
+	</section>
+
+</section>
+
+<section>
+	<h2>Today's Example</h2>
+	<ol>
+		<li>Build a basic template</li>
+		<li>Import the JUI</li>
+		<li>Extend/customize the JUI</li>
+	</ol>
+
+</section>
+
+<!-- Example of nested vertical slides -->
+<section>
+	<section>
+		<h2>Let's Code!</h2>
+		<a class="block" href="https://github.com/betweenbrain/bootstrap-template">https://github.com/betweenbrain/bootstrap-template</a>
+		<a class="block" href="https://github.com/construct-framework/bootstruct">https://github.com/construct-framework/bootstruct</a>
+	</section>
+
+</section>
+
+<section>
+	<h2>Next Steps</h2>
+	<ul>
+		<li>
+			<a href="http://jui.kyleledbetter.com/">The Joomla User Interface Library</a>
+		</li>
+		<li>
+			<a href="http://docs.joomla.org/Template_Development">Joomla Documentation: Template Development</a>
+		</li>
+		<li>
+			<a href="http://twitter.github.com/bootstrap/">Boostrap Documentation</a>
+		</li>
+		<li>
+			<a href="http://alistapart.com/article/responsive-web-design">A List apart: Responsive Web Design</a>
+		</li>
+		<li>
+			<a href="http://betweenbrain.com/talks/rwd/">Me: Achieving Responsiveness</a>
+		</li>
+		<li>
+			<a href="http://www.lukew.com/ff/entry.asp?933">Luke Wroblewski: Mobile First</a>
+		</li>
+		<li>
+			<a href="http://www.lynda.com/Jen-Kramer/203-1.html">Jen Kramer's Lynda.com Videos</a>
+			<a href="http://www.lynda.com/freepass/jkramer">(7-day free pass)</a>
+		</li>
+	</ul>
+
+</section>
+
+<section>
+	<h1>Thank you!</h1>
+	<p>Matt Thomas</p>
+	<a class="block" href='https://twitter.com/betweenbrain'>@betweenbrain</a>
+	<a class="block" href="http://betweenbrain.com">betweenbrain.com</a>
+	<a class="block" href="http://construct-framework.com/">construct-framework.com</a>
+</section>
+
+</div>
+
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.min.js"></script>
+
+<script>
+
+	// Full list of configuration options available here:
+	// https://github.com/hakimel/reveal.js#configuration
+	Reveal.initialize({
+		controls    : true,
+		progress    : true,
+		history     : true,
+		center      : true,
+		rollingLinks: false,
+
+		theme       : Reveal.getQueryHash().theme, // available themes are in /css/theme
+		transition  : Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+		// Optional libraries used to extend on reveal.js
+		dependencies: [
+			{ src: 'lib/js/classList.js', condition: function () {
+				return !document.body.classList;
+			} },
+			{ src: 'plugin/markdown/showdown.js', condition: function () {
+				return !!document.querySelector('[data-markdown]');
+			} },
+			{ src: 'plugin/markdown/markdown.js', condition: function () {
+				return !!document.querySelector('[data-markdown]');
+			} },
+			{ src: 'plugin/highlight/highlight.js', async: true, callback: function () {
+				hljs.initHighlightingOnLoad();
+			} },
+			{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function () {
+				return !!document.body.classList;
+			} },
+			{ src: 'plugin/notes/notes.js', async: true, condition: function () {
+				return !!document.body.classList;
+			} }
+			// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+		]
+	});
+
+</script>
+
+</body>
+</html>
