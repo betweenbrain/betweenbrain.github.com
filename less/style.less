@@ -18,8 +18,8 @@ Licenses:   DBAD License http://philsturgeon.co.uk/code/dbad-license
 @basecolor: #000;
 @lightcolor: lighten(@basecolor, 40%);
 @linkcolor: #2C001E;
-@linkhovercolor: #DD4814;
-@banneranchor: #fff;
+@linkhovercolor: #F26922;
+@secondarylinkcolor: #FFCC00;
 
 @serif        : Garamond, Palatino, "Palatino Linotype", "Hoefler Text", "Times New Roman", serif;
 @sanserif     : "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -161,6 +161,19 @@ blockquote:after {
   content : none;
 }
 
+.logo {
+
+  position: relative;
+
+  small{
+	display: block;
+	position: absolute;
+	top: 1.15em;
+	left: 7.5em;
+	color: @linkhovercolor;
+  }
+}
+
 p[data-pullquote]:before {
   font-size : 1.3em;
   margin    : 0 0 @baseline @baseline;
@@ -212,7 +225,7 @@ section section {
   text-align : center;
 
   a {
-	color : @banneranchor;
+	color : @secondarylinkcolor;
 	&:hover {
 	  color : @linkhovercolor;
 	}
@@ -305,6 +318,7 @@ article footer,
 /* SITE FOOTER */
 [role="contentinfo"] {
   background : @basecolor;
+  color: #fff;
 
   section {
 	.container;
@@ -313,7 +327,7 @@ article footer,
   }
 
   a {
-	color :#fff;
+	color : @secondarylinkcolor;
 	.transition;
 
 	&:hover {
@@ -326,6 +340,29 @@ article footer,
 	margin  : 1em 0;
   }
 }
+
+.thumbnail img {
+  background-color           : white;
+  -webkit-border-radius      : 100px;
+  -moz-border-radius         : 100px;
+  -ms-border-radius          : 100px;
+  -o-border-radius           : 100px;
+  border-radius              : 100px;
+  border-top-left-radius     : 100px;
+  border-top-right-radius    : 100px;
+  border-bottom-left-radius  : 100px;
+  border-bottom-right-radius : 100px;
+  position                   : relative;
+  text-align                 : center;
+  overflow                   : hidden;
+  -webkit-background-clip    : padding-box;
+  -moz-background-clip       : padding;
+  background-clip            : padding-box;
+  width                      : 165px !important;
+  border                     : 5px solid white;
+  float                      : left;
+}
+
 
 /* ==========================================================================
    Media Queries

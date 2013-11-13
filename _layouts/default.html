@@ -8,7 +8,7 @@
 	<meta name="x-ua-compatible" content="IE=edge;chrome=1" />
 	<meta name="cleartype" content="on" />
 	<title>{% if page.title %} {{ page.title | strip_html }} {% else %} {{ site.author.sitename }} {% endif %}</title>
-	<link rel="stylesheet" href="/css/style.css" />
+	<link rel="stylesheet" href="/css/style.min.css" />
 
 	<!--[if lt IE 9]>
 	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -18,12 +18,14 @@
 <header role="banner">
 	<section>
 		<div class="logo">
-			<a href="/" /><h1> {{ site.sitename }} </h1></a>
+			<a href="/" />{{ site.sitename }}</a>
+			<small>v{{ site.version }}</small>
 		</div>
 		<nav role="navigation">
 			<ul>
-				<li><a href="/about.html">About</a></li>
-				<li><a href="/archive.html">Archive</a></li>
+				<li><a href="/about/">About</a></li>
+				<li><a href="/posts/">Posts</a></li>
+				<li><a href="/talks/">Talks</a></li>
 			</ul>
 		</nav>
 	</section>
@@ -36,28 +38,27 @@
 
 <footer role="contentinfo">
 	<section>
-		<p>{{ site.author.name }} is a geeky, hacker / blogger who should probably buy
-			<a href="http://twitter.com/nternetinspired">Seth Warburton</a> a beer or two. Feel free to tell them so via the following services:
-		</p>
-		<ul>
-			<li>Twitter
-				<a href="http://twitter.com/{{ site.author.twitter }}">http://twitter.com/{{ site.author.twitter }}</a>
-			</li>
-			<li>Github
-				<a href="https://github.com/{{ site.author.github }}">https://github.com/{{ site.author.github }}</a>
-			</li>
-			<li>Email <a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a></li>
-		</ul>
-	</section>
-	<section>
-		<small>&copy; 2013 {{ site.author.name }}. There's an <a href="rss.xml">RSS feed</a> if you like that!</small>
+		Follow <a href="http://twitter.com/{{ site.author.twitter }}">@{{ site.author.twitter }}</a> |
+		<a href="https://github.com/{{ site.author.github }}">https://github.com/{{ site.author.github }}</a> |
+		<a href="'http://betweenbrain.com">betweenbrain.com</a>
+
+		<small>&copy; 2013 {{ site.author.name }}. There's an <a href="/rss.xml">RSS feed</a> if you like that!</small>
 		<small>Built with
 			<a href="https://github.com/nternetinspired/nternetinspired.github.com">Jekyll-me</a>, the awesome
 			<a href="http://jekyllrb.com/">Jekyll</a>-based starter from
-			<a href="http://internet-inspired.com">Internet Inspired!</a>. Hand-crafted and served with a
-			<a href="/license.html">DBAD license</a>.
+			<a href="http://internet-inspired.com">Internet Inspired!</a>
 		</small>
 	</section>
 </footer>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2493745-49']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
 </body>
 </html>
