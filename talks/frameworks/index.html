@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>reveal.js - The HTML Presentation Framework</title>
+
+	<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+	<meta name="author" content="Hakim El Hattab">
+
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+	<link rel="stylesheet" href="css/reveal.min.css">
+	<link rel="stylesheet" href="css/theme/default.css" id="theme">
+	<link rel="stylesheet" href="css/theme/betweenbrain.css">
+
+	<!-- For syntax highlighting -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+	<script>
+		document.write('<link rel="stylesheet" href="css/print/' + ( window.location.search.match(/print-pdf/gi) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">');
+	</script>
+
+	<!--[if lt IE 9]>
+	<script src="lib/js/html5shiv.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+<section>
+	<h1>Approaching Template Frameworks</h1>
+	<img class="logo clean" src="images/logo.png" />
+	<a rel="author" href="https://twitter.com/betweenbrain">Matt Thomas</a>
+	<a href="http://betweenbrain.com/talks/frameworks">http://betweenbrain.com/talks/frameworks</a>
+</section>
+
+<section>
+	<h2>Scope</h2>
+	<ul>
+		<li>Discuss the two types of Frameworks.</li>
+		<li>Points to consider when evaluating one.</li>
+	</ul>
+
+	<aside class="notes">
+		Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
+	</aside>
+</section>
+
+<!-- Example of nested vertical slides -->
+<section>
+	<section>
+		<h1>In the beginning...</h1>
+		<p class="fragment">...there was code, and lots of it.</p>
+	</section>
+	<section>
+		<h2>Two Scenarios</h2>
+		<p>Which lead to the frameworks of today.</p>
+	</section>
+	<section>
+		<h2>Club Template Scenario</h2>
+		<p>End user wants to customize their template.</p>
+		<p>Support provides files to edit, which lines of code go where.</p>
+		<p class="fragment">After 12 forum posts (each), support and client gives up, support fixes the misplaced semi-colon.</p>
+	</section>
+	<section>
+		<h2>Custom Template Scenario</h2>
+		<p>Clients needed one-of-a-kind templates.</p>
+		<p>Not uncommon to reuse 80-90% template code.</p>
+		<p>A reusable code-base naturally evolved. </p>
+	</section>
+	<section>
+		<h2>Two Outcomes</h2>
+		<li>Club template frameworks for configuration over coding.</li>
+		<li>Template development frameworks for faster, better development.</li>
+	</section>
+</section>
+
+<section>
+	<section>
+		<h1>Pros and Cons...</h1>
+	</section>
+	<section>
+		<h2>Club Template Frameworks - Pros</h2>
+		<ul>
+			<li>Potentially faster/easier to configure.</li>
+			<li>Safer for non-coders, hand-off to clients.</li>
+			<li>Potentially more complete starting point.</li>
+		</ul>
+	</section>
+	<section>
+		<h2>Club Template Frameworks - Cons</h2>
+		<ul>
+			<li>More complex solutions are needed for configuration.</li>
+			<li>Limited to available options.</li>
+			<li>Potentially difficult to customize beyond available options.</li>
+		</ul>
+	</section>
+	<section>
+		<h2>Template Dev Frameworks - Pros</h2>
+		<ul>
+			<li>Less prone to code-bloat.</li>
+			<li>More precisely customizable to spec.</li>
+			<li>Tend to have "unique" features.</li>
+		</ul>
+	</section>
+	<section>
+		<h2>Template Dev Frameworks - Cons</h2>
+		<ul>
+			<li>More difficult for end-users/client to change.</li>
+			<li>Potentially more time to develop.</li>
+			<li>Less likely to be commercially supported.</li>
+		</ul>
+	</section>
+	<section>
+		<h2>All Frameworks</h2>
+		<ul>
+			<li>Are different.</li>
+			<li>Have some degree of a learning curve.</li>
+			<li>Improve your process once mastered.</li>
+		</ul>
+	</section>
+</section>
+
+<section>
+	<section>
+	<h1>Considerations</h1>
+	</section>
+	<section>
+		<h2>Are you a coder?</h2>
+		<pre><code data-trim contenteditable>
+&lt;?php IF CODE_IS_SCARY {
+	echo 'A Template Club Framework is a good choice'; }
+ELSE {
+	$template_development_framework = TRUE;
+}
+ </code></pre>
+	</section>
+
+	<section>
+		<h2>Available Options</h2>
+		<p>Does the framework provide the necessary features? If not:</p>
+		<ul>
+			<li>
+				Some Club Template Frameworks allow for some code-level customization with varying difficulty.
+			</li>
+			<li>
+				Template Development Frameworks are more likely to be extensible and overriden.
+			</li>
+		</ul>
+	</section>
+	<section>
+		<h2>Upgradability</h2>
+		<p>Can you modify/override it and still upgrade it without loosing customizations?</p>
+	</section>
+	<section>
+		<h2>Joomla Convention</h2>
+		<p>Does it follow standard Joomla conventions?<br/>(i.e. template overrides)</p>
+	</section>
+	<section>
+		<h2>Complexity</h2>
+		<p class="fragment">Is it just a template, or</p>
+		<p class="fragment">1 component, 2 plugins and a complex template?</p>
+	</section>
+	<section>
+		<h2>Added functionality</h2>
+		<p>Does it add any new, unique functionality beyond standard Joomla templates?</p>
+	</section>
+</section>
+
+<section>
+	<h2>In Summary</h2>
+	<h1 class="fragment">It depends!</h1>
+</section>
+
+
+<section>
+	<h1>Thank You!</h1>
+	<img class="logo clean" src="images/logo.png" />
+	<a rel="author" href="https://twitter.com/betweenbrain">Matt Thomas</a>
+	<a href="http://betweenbrain.com/talks/frameworks">http://betweenbrain.com/talks/frameworks</a>
+</section>
+
+</div>
+
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.min.js"></script>
+
+<script>
+
+	// Full list of configuration options available here:
+	// https://github.com/hakimel/reveal.js#configuration
+	Reveal.initialize({
+		controls    : true,
+		progress    : true,
+		history     : true,
+		center      : true,
+		rollingLinks: false,
+
+		theme       : Reveal.getQueryHash().theme, // available themes are in /css/theme
+		transition  : Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+		// Optional libraries used to extend on reveal.js
+		dependencies: [
+			{ src: 'lib/js/classList.js', condition: function () {
+				return !document.body.classList;
+			} },
+			{ src: 'plugin/markdown/marked.js', condition: function () {
+				return !!document.querySelector('[data-markdown]');
+			} },
+			{ src: 'plugin/markdown/markdown.js', condition: function () {
+				return !!document.querySelector('[data-markdown]');
+			} },
+			{ src: 'plugin/highlight/highlight.js', async: true, callback: function () {
+				hljs.initHighlightingOnLoad();
+			} },
+			{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function () {
+				return !!document.body.classList;
+			} },
+			{ src: 'plugin/notes/notes.js', async: true, condition: function () {
+				return !!document.body.classList;
+			} }
+			// { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+			// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+		]
+	});
+
+</script>
+
+</body>
+</html>

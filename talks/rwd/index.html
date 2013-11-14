@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+	<meta charset="utf-8">
+	<title>Achieving Responsiveness</title>
+	<meta name="description" content="An introduction to Responsive Web Design and its implementation">
+	<meta name="author" content="Matt Thomas">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+	<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/theme/betweenbrain.css">
+	<!-- For syntax highlighting -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+	<script>
+	// If the query includes 'print-pdf' we'll use the PDF print sheet
+	document.write('<link rel="stylesheet" href="css/print/' + ( window.location.search.match(/print-pdf/gi) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">');
+	</script>
+	<!--[if lt IE 9]>
+	<script src="lib/js/html5shiv.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+<div class="reveal">
+
+<!-- Used to fade in a background when a specific slide state is reached -->
+<div class="state-background"></div>
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+	<section>
+		<h1>Achieving Responsiveness</h1>
+		<img class="logo clean" src="images/logo.png" />
+		<a rel="author" href="https://twitter.com/betweenbrain">Matt Thomas</a>
+		<cite><a href="http://betweenbrain.com/talks/rwd">betweenbrain.com/talks/rwd</a></cite>
+	</section>
+
+<section>
+	<h2>Responsive Web Design</h2>
+	<q>an approach [where] a site is crafted to provide an optimal viewing experience across a wide range of devices</q>
+	<cite>Wikipedia: <a href="http://en.wikipedia.org/wiki/Responsive_Web_Design ">Responsive Web Design</a></cite>
+</section>
+
+<section>
+	<h2>3 Elements of RWD</h2>
+	<ul>
+	<li class="fragment">Media Queries</li>
+	<li class="fragment">Fluid Grid</li>
+	<li class="fragment">Flexible Images
+		<ul>
+			<li class="fragment">[objects too!]</li>
+		</ul>
+	</li>
+	</ul>
+</section>
+
+<section>
+	<section>
+		<h2>Media Queries</h2>
+
+		<p class="fragment">
+			<q>consists of a <a href="http://www.w3.org/TR/CSS2/media.html#media-types">media type</a> and zero or more expressions that check for the conditions of particular
+				<a href="http://dev.w3.org/csswg/css3-mediaqueries/#media1">media features</a>.</q>
+			<cite>W3C: <a href="http://dev.w3.org/csswg/css3-mediaqueries/#abstract">Media Queries</a></cite>
+		</p>
+	</section>
+	<section>
+		<h2>For Example</h2>
+<article class="fragment">
+<pre><code contenteditable>/* Default styles for small screens */
+
+body { font-size : 76%; }
+
+#body-container { width : 95%; }
+
+@media only <span class="highlight">screen</span> and (<span class="highlight">min-width</span>: 40em) {...}
+
+@media only screen and (min-width: 50em) {...}
+
+@media only screen and (min-width: 64em) {...}
+
+@media only screen and (min-width: 82.6em) {...}
+
+@media only screen and (min-width: 115em) {...}</code></pre>
+        		<cite>Construct5: <a href="https://github.com/construct-framework/construct5/blob/master/css/grids/construct-responsive.css">construct-responsive.css</a></cite>
+</article>
+	</section>
+
+    <section>
+        <h2>Media Types</h2>
+        <ul class="fragment">
+            <li>all</li>
+            <li>braille</li>
+            <li>embossed</li>
+            <li>handheld</li>
+            <li>print</li>
+            <li>projection</li>
+            <li><span class="highlight">screen</span></li>
+            <li>speech</li>
+            <li>tty</li>
+            <li>tv</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Media Features</h2>
+        <ul class="fragment">
+            <li>width</li>
+            <li>height</li>
+            <li>device-width</li>
+            <li>device-height</li>
+            <li>orientation</li>
+            <li>aspect-ratio</li>
+            <li>device-aspect-ratio</li>
+            <li>color</li>
+            <li>color-index</li>
+            <li>monochrome</li>
+            <li>resolution</li>
+            <li>scan</li>
+            <li>grid</li>
+        </ul>
+    </section>
+</section>
+
+    <section>
+        <section>
+            <h2>Fluid Grid</h2>
+
+            <p class="fragment">
+                <q>Break out of our reliance on &quot;minimum screen resolution&quot; [and] put control of our designs firmly
+                    <a href="http://www.alistapart.com/articles/dao/">in the hands of our users</a> and their browsing habits.</q>
+                <cite>Ethan Marcotte: <a href="http://www.alistapart.com/articles/fluidgrids/">Fluid Grids</a></cite>
+            </p>
+        </section>
+        <section>
+            <h2>Added Benefit</h2>
+
+            <p class="fragment">Help accommodate for what happens between &quot;break points&quot;, future proof your design.</p>
+        </section>
+        <section>
+         <h2>target ÷ context = result</h2>
+<pre><code contenteditable>.entry .main {
+  float: left;
+  <span class="highlight">width: 82.938%</span>; /* 700px / 844px = 0.82938 */
+}
+
+.entry .meta {
+  float: right;
+  <span class="highlight">width: 14.692%</span>; /* 124px / 844px = 0.14692 */
+}</code></pre>
+            <ul>
+                <li class="fragment">Fluid grid != grid system</li>
+                <li class="fragment">Start using fluid grids for everything, even with fixed width designs.</li>
+                </ul>
+            </section>
+        </section>
+
+    <section>
+        <section>
+            <h2>Flexible Images</h2>
+
+            <p class="fragment">
+                <q>working with non-fixed layouts can be more difficult once you introduce fixed-width elements (images) into them.</q>
+                <cite>Ethan Marcotte:
+                    <a href="http://unstoppablerobotninja.com/entry/fluid-images/">Fluid Images</a></cite>
+            </p>
+        </section>
+
+		<section>
+			<h2>Achieving Flexibility</h2>
+<pre class="fragment"><code contenteditable>img, object {
+  max-width: 100%;
+}</code></pre>
+			<aside class="fragment">Omit width and height attributes of <code>&lt;img&gt;</code> tag.</aside>
+	</section>
+    <section>
+        <h2>Other Approaches</h2>
+        <dl>
+            <dt>Filament Group:<a href="https://github.com/scottjehl/Responsive-Images">Responsive Images</a></dt>
+            <dd>
+                Dynamically rewrites
+                <code>src</code> attribute to serve dramatically different image sizes at different resolutions.
+            </dd>
+            <dt>
+                <a href="http://adaptive-images.com/">Adaptive Images</a>
+            </dt>
+            <dd>
+                <q>... detects your visitor's screen size and automatically creates, caches, and delivers device appropriate re-scaled ... images</q>
+            </dd>
+            <dt>
+                <a href="https://github.com/teleject/hisrc">HiSRC</a>
+            </dt>
+            <dd>
+                <q>The simple jQuery plugin for adaptive images in responsive web design</q>
+            </dd>
+        </dl>
+        <aside>And
+            <a href="http://css-tricks.com/which-responsive-images-solution-should-you-use/">many, many more...</a>
+        </aside>
+    </section>
+</section>
+
+    <section>
+        <h2>Approaching Responsiveness</h2>
+        <small>a.k.a. we have the ingredients, but how do we make the soup?</small>
+        <q class="fragment">Achieving responsiveness requires a mental shift, a different approach, a new way of thinking.</q>
+        <cite class="fragment">me</cite>
+    </section>
+
+    <section>
+        <h2>Why RWD?</h2>
+        <section>
+            <p class="fragment">
+                <a href="https://twitter.com/lukew/statuses/161943568024469504"><img src="images/lukew-twitter.jpg" /></a>
+                <cite><a href="http://www.lukew.com/about">Luke Wroblewski</a></cite>
+            </p>
+        </section>
+        <section>
+            <p class="fragment">
+                People are accessing the web in an ever increasing variety of ways. In some cases, content is being removed from the presentation and re-displayed in another manner.
+            </p>
+            <ul>
+                <li class="fragment"><a href="http://getpocket.com/">Pocket (Formerly Read It Later)</a></li>
+                <li class="fragment"><a href="http://www.instapaper.com/">Instapaper</a></li>
+            </ul>
+        </section>
+        <section>
+            <p class="fragment">
+                <q><a href="https://twitter.com/nternetinspired/status/219808473725145090">Content-first, mobile-first, user-first! win=win</a></q>
+                <cite><a href="http://internet-inspired.com/">Seth Warburton</a></cite>
+            </p>
+        </section>
+    </section>
+
+    <section>
+        <h2>Content First: Design</h2>
+        <section>
+            <article class="fragment">
+                <q>A design that understands and supports content is always going to be better.</q>
+                <cite>Luke Wroblewski&apos;s notes on
+                    <a href="http://www.lukew.com/ff/entry.asp?1372">An Event Apart: Content First</a></cite>
+            </article>
+        </section>
+
+        <section>
+            <p class="fragment">Treat visual design as progressive enhancement of content.</p>
+            <ol>
+                <li class="fragment">Develop content and messaging.</li>
+                <li class="fragment">Implement un-styled, logically organized content.</li>
+                <li class="fragment">Deploy supporting features.</li>
+                <li class="fragment">Design to enhance the user experience.</li>
+            </ol>
+            <aside class="fragment">Matt Thomas:
+                <a href="http://prezi.com/d5l14glcmlmv/content-first-website-development/">Content First Website Development</a>
+            </aside>
+        </section>
+       </section>
+
+    <section>
+
+        <section>
+            <h2>Content First: Fluidity</h2>
+            <article class="fragment">
+                <q>A core tenet of Responsive Web Design (RWD) is fluidity and proportion</q>
+                <cite><a href="http://blog.cloudfour.com/the-ems-have-it-proportional-media-queries-ftw/">The EMs have it: Proportional Media Queries FTW!</a></cite>
+            </article>
+        </section>
+
+        <section>
+            <h2>Ems for Media Queries</h2>
+            <article class="fragment">
+                <ul>
+                    <li>Handle zooming better (EMs scale)</li>
+                    <li>Force you to think about content versus device</li>
+                </ul>
+                <cite>Luke Wroblewski :
+                    <a href="https://learn.extension.org/events/562">Organizing Mobile Web Experiences</a></cite>
+            </article>
+        </section>
+        <section>
+            <h2>Ems for Media Queries</h2>
+            <article class="fragment">
+                <p>The atomic unit of measure for a site's media queries should be based on <q>the ideal line length of a single column of text.</q></p>
+                <p>This approach has have nothing to do with screen size or resolution.</p>
+                <cite>Ethan Marcotte:
+                    <a href="http://www.eventbrite.com/event/4155755978">Real World Applications of Responsive Web Design</a></cite>
+            </article>
+        </section>
+    </section>
+
+    <section>
+        <section>
+            <h2>Mobile
+                <small>(Tiny screen)</small>
+                first...
+            </h2>
+            <p class="fragment">
+                <q>... [instead of] from the desktop down. (Oh how we laughed when we realised our mistake.)</q>
+                <cite>Andy Clarke: The new
+                    <a href="http://stuffandnonsense.co.uk/projects/320andup/">320 and Up</a></cite>
+            </p>
+        </section>
+
+        <section>
+            <h2>Mobile First CSS</h2>
+
+            <p class="fragment">
+                Baseline CSS (design) is for all devices, then progressively enhanced for larger screens and modern browsers that understand this enhancement.
+            </p>
+<pre class="fragment"><code contenteditable><span class="highlight">/* Default styles for small screens */</span>
+
+<span class="highlight">body { font-size : 76%; }</span>
+
+<span class="highlight">#body-container { width : 95%; }</span>
+
+@media only screen and (min-width: 40em) {...}
+
+@media only screen and (min-width: 50em) {...}
+
+@media only screen and (min-width: 64em) {...}
+
+@media only screen and (min-width: 82.6em) {...}
+
+@media only screen and (min-width: 115em) {...}</code></pre>
+   	</section>
+
+    <section>
+        <h2>Focus</h2>
+
+        <article class="fragment">
+            <q>The constraints of the mobile medium force us to focus on what really matters</q>
+            <cite>Brad Frost:
+                <a href="http://bradfrostweb.com/blog/mobile/the-many-faces-of-mobile-first/">the many faces of &apos;mobile first&apos;</a></cite>
+        </article>
+    </section>
+
+    <section>
+        <h2>80% Less</h2>
+
+        <article class="fragment">
+            <q>When you design for mobile first... 80% of the content, navigation, promotions, and interactions needs to go. And that's... great.</q>
+            <cite>Luke Wroblewski :
+                <a href="http://www.lukew.com/ff/entry.asp?1117">Mobile First Helps with Big Issues</a></cite>
+        </article>
+    </section>
+</section>
+
+    <section>
+        <h2>User First</h2>
+
+        <p class="fragment">Websites are created to convey messages and provide a gateway to interaction. The user experience, and maximizing accessibility, must comes first to achieve this.</p>
+
+        <p class="fragment">Think
+            <a href="http://accessites.org/site/2007/02/graceful-degradation-progressive-enhancement/">Progressive Enhancement &amp; Graceful Degradation</a>
+        </p>
+
+        <p class="fragment">Think <a href="http://www.w3.org/WAI/">Web Accessibility</a></p>
+    </section>
+
+    <section>
+        <h2>Epitome</h2>
+        <section>
+            <p class="fragment">RWD is more than using media queries, fluid grids, and flexible images.</p>
+        </section>
+        <section>
+            <article class="fragment">
+                <p>Achieving responsiveness involves:</p>
+                <ul>
+                    <li>Approach content before design.</li>
+                    <li>Use visual design as enhancement.</li>
+                    <li>Develop for mobile first.</li>
+                    <li>Progressively enhance with media queries.</li>
+                    <li>Maximize user experience and accessibility.</li>
+                </ul>
+            </article>
+        </section>
+        <section>
+            <p class="fragment">Do everything you can to put the user in control of their experience.</p>
+        </section>
+    </section>
+
+    <section>
+        <h2>More Reading &amp; Viewing</h2>
+        <ul>
+            <li>
+                <a href="http://www.alistapart.com/articles/responsive-web-design/">Responsive Web Design - A List Apart May 25, 2010</a>
+            </li>
+            <li>
+                <a href="http://vimeo.com/34662135">A Dao of Flexibility - An Event Apart Nov 2, 2010</a>
+            </li>
+            <li>
+                <a href="http://www.zeldman.com/2012/02/07/fluid-grids-orientation-resolution-independence/">Fluid grids, orientation & resolution independence</a>
+            </li>
+            <li>
+                <a href="https://www.youtube.com/watch?v=3iVVM_DgWY4">The Art of Web Design | Off Book | PBS</a>
+            </li>
+            <li>
+                <a href="http://www.alistapart.com/articles/responsive-images-how-they-almost-worked-and-what-we-need/">Responsive Images: How they Almost Worked and What We Need</a>
+            </li>
+            <li>
+                <a href="http://css-tricks.com/which-responsive-images-solution-should-you-use/">CSS-Tricks: Which responsive images solution should you use?</a>
+            </li>
+            <li>
+                <a href="http://bradfrostweb.com/blog/web/mobile-first-responsive-web-design/">mobile-first responsive web design</a>
+            </li>
+            <li>
+                <a href="http://www.netmagazine.com/opinions/nielsen-vs-clark-theyre-both-wrong">Nielsen vs Clark - they're both wrong</a>
+            </li>
+            <li>
+                <a href="http://www.netmagazine.com/features/case-responsive-web-content-its-all-about-users">The case for responsive web content: it's all about the users</a>
+            </li>
+            <li>
+                <a href="http://www.joomladaynewengland.org/images/howtogreatmobilesite.01.js.pdf">How to make a great mobile site</a>
+            </li>
+        </ul>
+    </section>
+
+<section>
+<h1>THE END</h1>
+
+	<img class="logo clean" src="images/logo.png" />
+	<a rel="author" href="https://twitter.com/betweenbrain">Matt Thomas</a>
+	<cite><a href="http://betweenbrain.com/talks/rwd">betweenbrain.com/talks/rwd</a></cite>
+</section>
+</div>
+
+<!-- The navigational controls UI -->
+<aside class="controls">
+<a class="left" href="#">&#x25C4;</a>
+<a class="right" href="#">&#x25BA;</a>
+<a class="up" href="#">&#x25B2;</a>
+<a class="down" href="#">&#x25BC;</a>
+</aside>
+
+<!-- Presentation progress bar -->
+<div class="progress"><span></span></div>
+
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.min.js"></script>
+
+<script>
+
+// Full list of configuration options available here:	// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+controls:true,
+progress:true,
+history :true,
+
+transition  :Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/linear(2d)
+
+// Optional libraries used to extend on reveal.js
+dependencies:[
+	{ src:'lib/js/highlight.js', async:true, callback:function () {
+		window.hljs.initHighlightingOnLoad();
+	} },
+	{ src:'lib/js/classList.js', condition:function () {
+		return !document.body.classList;
+	} },
+	{ src:'lib/js/showdown.js', condition:function () {
+		return !!document.querySelector('[data-markdown]');
+	} },
+	{ src:'lib/js/data-markdown.js', condition:function () {
+		return !!document.querySelector('[data-markdown]');
+	} },
+	{ src:'socket.io/socket.io.js', async:true, condition:function () {
+		return window.location.host === 'localhost:1947';
+	} },
+	{ src:'plugin/speakernotes/client.js', async:true, condition:function () {
+		return window.location.host === 'localhost:1947';
+	} }
+]
+});
+
+</script>
+
+</body>
+</html>
