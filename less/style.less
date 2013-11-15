@@ -19,7 +19,7 @@ Licenses:   DBAD License http://philsturgeon.co.uk/code/dbad-license
 @lightcolor: lighten(@basecolor, 40%);
 @linkcolor: #2C001E;
 @linkhovercolor: #F26922;
-@secondarylinkcolor: #FFCC00;
+@secondarylinkcolor: #999;
 
 @serif        : Garamond, Palatino, "Palatino Linotype", "Hoefler Text", "Times New Roman", serif;
 @sanserif     : "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -48,7 +48,6 @@ textarea {
 }
 
 html {
-  background : @basecolor;
 }
 
 body {
@@ -162,15 +161,20 @@ blockquote:after {
 }
 
 .logo {
+  display    : block;
+  position   : relative;
+  text-align : center;
+  font-style : italic;
 
-  position: relative;
+  a {
+	color       : @secondarylinkcolor;
+	font-weight : normal;
+  }
 
-  small{
-	display: block;
-	position: absolute;
-	top: 1.15em;
-	left: 7.5em;
-	color: @linkhovercolor;
+  small {
+	font-size : .5em;
+	position  : relative;
+	left      : -.5em;
   }
 }
 
@@ -221,16 +225,7 @@ section section {
 
 /* HEADER */
 [role="banner"] {
-  background : @basecolor;
   text-align : center;
-
-  a {
-	color : @secondarylinkcolor;
-	&:hover {
-	  color : @linkhovercolor;
-	}
-
-  }
 
   > section {
 	.container;
@@ -317,27 +312,20 @@ article footer,
 
 /* SITE FOOTER */
 [role="contentinfo"] {
-  background : @basecolor;
-  color: #fff;
+
+  border-top : 1px solid #000000;
 
   section {
 	.container;
 	padding       : @baseline;
 	margin-bottom : 0;
-  }
-
-  a {
-	color : @secondarylinkcolor;
-	.transition;
-
-	&:hover {
-	  color : @linkhovercolor;
-	}
+	font-size: .8em;
   }
 
   small {
 	display : block;
-	margin  : 1em 0;
+	margin  : .25em 0;
+	font-size: 1em;
   }
 }
 
@@ -363,7 +351,6 @@ article footer,
   float                      : left;
 }
 
-
 /* ==========================================================================
    Media Queries
    ========================================================================== */
@@ -381,19 +368,17 @@ article footer,
 
   .logo,
   [role="navigation"] {
-	display        : inline-block;
-	width          : 50%;
 	vertical-align : middle;
 	margin-right   : -.25em;
   }
 
   [role="navigation"] ul {
 	margin     : 0;
-	text-align : right;
+	text-align : center;
   }
 
   [role="navigation"] li a {
-	padding : .5em 0 .5em 2em;
+	padding : .5em 1em;
   }
 }
 
@@ -416,6 +401,52 @@ article footer,
 	width          : 38.2%;
 	text-align     : right;
   }
+
+  /*
+  Sticky Footer Solution
+  by Steve Hatcher
+  http://stever.ca
+  http://www.cssstickyfooter.com
+  */
+  * {
+	margin  : 0;
+	padding : 0;
+  }
+
+  html, body {
+	height : 100%;
+  }
+
+  .wrap {
+	min-height : 100%;
+  }
+
+  main {
+	overflow       : auto;
+	padding-bottom : 90px;
+  }
+
+  /* must be same height as the footer */
+  footer {
+	position   : relative;
+	margin-top : -90px; /* negative value of footer height */
+	height     : 90px;
+	clear      : both;
+  }
+
+  /*Opera Fix*/
+  body:before {
+	/* thanks to Maleika (Kohoutec)*/
+	content    : "";
+	height     : 100%;
+	float      : left;
+	width      : 0;
+	margin-top : -32767px; /* thank you Erik J - negate effect of float*/
+  }
+
+  /*
+  End sticky footer
+  */
 }
 
 @media only screen and (min-width : 90em) {
