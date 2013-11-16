@@ -30,9 +30,7 @@ summary {
 /*
  * Corrects `inline-block` display not defined in IE 6/7/8/9 and Firefox 3.
  */
-audio,
-canvas,
-video {
+audio, canvas, video {
   display: inline-block;
   *display: inline;
   *zoom: 1;
@@ -102,8 +100,7 @@ a:focus {
 /*
  * Improves readability when focused and also mouse hovered in all browsers.
  */
-a:active,
-a:hover {
+a:active, a:hover {
   outline: 0;
 }
 /* ==========================================================================
@@ -147,8 +144,7 @@ abbr[title] {
 /*
  * Addresses style set to `bolder` in Firefox 3+, Safari 4/5, and Chrome.
  */
-b,
-strong {
+b, strong {
   font-weight: bold;
 }
 blockquote {
@@ -170,8 +166,7 @@ mark {
 /*
  * Addresses margins set differently in IE 6/7.
  */
-p,
-pre {
+p, pre {
   margin: 1em 0;
 }
 /*
@@ -202,8 +197,7 @@ q {
 /*
  * Addresses `quotes` property not supported in Safari 4.
  */
-q:before,
-q:after {
+q:before, q:after {
   content: '';
   content: none;
 }
@@ -216,8 +210,7 @@ small {
 /*
  * Prevents `sub` and `sup` affecting `line-height` in all browsers.
  */
-sub,
-sup {
+sub, sup {
   font-size: 75%;
   line-height: 0;
   position: relative;
@@ -247,16 +240,13 @@ dd {
 /*
  * Addresses paddings set differently in IE 6/7.
  */
-menu,
-ol,
-ul {
+menu, ol, ul {
   padding: 0 0 0 40px;
 }
 /*
  * Corrects list images handled incorrectly in IE 7.
  */
-nav ul,
-nav ol {
+nav ul, nav ol {
   list-style: none;
   list-style-image: none;
 }
@@ -351,8 +341,7 @@ textarea {
  * Addresses Firefox 3+ setting `line-height` on `input` using `!important` in
  * the UA stylesheet.
  */
-button,
-input {
+button, input {
   line-height: normal;
 }
 /*
@@ -381,8 +370,7 @@ input[type="submit"] {
 /*
  * Re-set default cursor for disabled elements.
  */
-button[disabled],
-input[disabled] {
+button[disabled], input[disabled] {
   cursor: default;
 }
 /*
@@ -391,8 +379,7 @@ input[disabled] {
  * 3. Removes excess padding in IE 7.
  *    Known issue: excess padding remains in IE 6.
  */
-input[type="checkbox"],
-input[type="radio"] {
+input[type="checkbox"], input[type="radio"] {
   box-sizing: border-box;
   /* 1 */
 
@@ -425,15 +412,13 @@ input[type="search"] {
  * Removes inner padding and search cancel button in Safari 5 and Chrome
  * on OS X.
  */
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-decoration {
+input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 /*
  * Removes inner padding and border in Firefox 3+.
  */
-button::-moz-focus-inner,
-input::-moz-focus-inner {
+button::-moz-focus-inner, input::-moz-focus-inner {
   border: 0;
   padding: 0;
 }
@@ -459,8 +444,10 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-.visuallyhidden.focusable:active,
-.visuallyhidden.focusable:focus {
+/*
+@linkcolor: #2C001E;
+*/
+.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus {
   position: static;
   clip: auto;
   height: auto;
@@ -511,7 +498,7 @@ body {
    Links
    ========================================================================== */
 a {
-  color: #2c001e;
+  color: #000000;
   text-decoration: none;
   position: relative;
   font-weight: bold;
@@ -560,9 +547,7 @@ h5,
 h6 {
   font-weight: normal;
 }
-h1,
-h2,
-h3 {
+h1, h2, h3 {
   text-rendering: optimizeLegibility;
   font-variant: normal !important;
   -moz-font-feature-settings: "liga", "dlig";
@@ -577,16 +562,14 @@ blockquote {
 blockquote p {
   margin: 0;
 }
-blockquote,
-p[data-pullquote]:before {
+blockquote, p[data-pullquote]:before {
   padding: 1.5em;
   border-left: 3px solid #000000;
   color: #808080;
   font-style: italic;
   display: block;
 }
-blockquote:before,
-blockquote:after {
+blockquote:before, blockquote:after {
   content: '';
   content: none;
 }
@@ -612,8 +595,7 @@ p[data-pullquote]:before {
   width: 10em;
   content: attr(data-pullquote);
 }
-pre,
-code {
+pre, code {
   font-family: Monaco, Courier New, monospace;
   font: 0.9375em/1.26562em monospace, monospace;
   background: #f2f2f2;
@@ -643,15 +625,17 @@ abbr {
    ========================================================================== */
 /* give all the sections some breathing space */
 section section {
-  padding: 1.5em 0;
+  padding: 0;
 }
 /* HEADER */
 [role="banner"] {
   text-align: center;
+  border-bottom: 1px solid #000000;
+  max-width: 45em;
 }
 [role="banner"] > section {
-  max-width: 60em;
-  padding: 1.5em;
+  max-width: 45em;
+  padding: 0.75em 0;
 }
 [role="banner"] h1 {
   margin: 0;
@@ -672,7 +656,7 @@ nav ul {
 /* MAIN CONTENT */
 /* the main content area */
 [role="main"] > section {
-  max-width: 60em;
+  max-width: 45em;
   padding: 0 1.5em 1.5em;
 }
 /* article banner image */
@@ -690,8 +674,7 @@ figure figcaption {
   margin-top: .5em;
 }
 /* article footer items */
-article footer,
-.readmore {
+article footer, .readmore {
   font-style: italic;
 }
 .article-nav {
@@ -708,8 +691,14 @@ article footer,
   text-align: right;
 }
 /* reduce size of h1 on article lists */
-.article-intro h1 {
+.article-intro h1, .full-article h1 {
   font-size: 1.5em;
+}
+.article-intro header,
+.full-article header,
+.article-intro footer,
+.full-article footer {
+  display: inline-block;
 }
 /* box the comments */
 .article-comments {
@@ -718,10 +707,11 @@ article footer,
 }
 /* SITE FOOTER */
 [role="contentinfo"] {
+  max-width: 45em;
   border-top: 1px solid #000000;
 }
 [role="contentinfo"] section {
-  max-width: 60em;
+  max-width: 45em;
   padding: 1.5em;
   margin-bottom: 0;
   font-size: .8em;
@@ -732,7 +722,7 @@ article footer,
   font-size: 1em;
 }
 .thumbnail img {
-  background-color: white;
+  background-color: #ffffff;
   -webkit-border-radius: 100px;
   -moz-border-radius: 100px;
   -ms-border-radius: 100px;
@@ -764,8 +754,7 @@ article footer,
   [role="banner"] {
     text-align: left;
   }
-  .logo,
-  [role="navigation"] {
+  .logo, [role="navigation"] {
     vertical-align: middle;
     margin-right: -0.25em;
   }
@@ -778,19 +767,23 @@ article footer,
   }
 }
 @media only screen and (min-width: 45em) {
-  [role="banner"] > section,
-  [role="contentinfo"] > section {
+  .container {
+    /*margin: 0 auto;*/
+  
+  }
+  [role="banner"] > section, [role="contentinfo"] > section {
     padding: 0.75em 1.5em;
   }
   article header {
     display: inline-block;
     vertical-align: middle;
-    width: 61%;
+    width: 67%;
   }
   article footer {
     display: inline-block;
-    vertical-align: middle;
-    width: 38.2%;
+    /*vertical-align : middle;*/
+  
+    width: 32.2%;
     text-align: right;
   }
   /*
@@ -803,8 +796,7 @@ article footer,
     margin: 0;
     padding: 0;
   }
-  html,
-  body {
+  html, body {
     height: 100%;
   }
   .wrap {
@@ -848,8 +840,7 @@ article footer,
   body {
     font-size: 112%;
   }
-  [role="banner"] > section,
-  [role="contentinfo"] > section {
+  [role="banner"] > section, [role="contentinfo"] > section {
     padding: 6em 1.5em;
   }
 }
@@ -867,8 +858,7 @@ article footer,
     box-shadow: none !important;
     text-shadow: none !important;
   }
-  a,
-  a:visited {
+  a, a:visited {
     text-decoration: underline;
   }
   a[href]:after {
@@ -880,13 +870,10 @@ article footer,
   /*
    * Don't show links for images, or javascript/internal links
    */
-  .ir a:after,
-  a[href^="javascript:"]:after,
-  a[href^="#"]:after {
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after {
     content: "";
   }
-  pre,
-  blockquote {
+  pre, blockquote {
     border: 1px solid #999;
     page-break-inside: avoid;
   }
@@ -895,8 +882,7 @@ article footer,
     /* h5bp.com/t */
   
   }
-  tr,
-  img {
+  tr, img {
     page-break-inside: avoid;
   }
   img {
@@ -905,14 +891,11 @@ article footer,
   @page  {
     margin: 0.5cm;
   }
-  p,
-  h2,
-  h3 {
+  p, h2, h3 {
     orphans: 3;
     widows: 3;
   }
-  h2,
-  h3 {
+  h2, h3 {
     page-break-after: avoid;
   }
 }

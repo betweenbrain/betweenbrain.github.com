@@ -13,11 +13,14 @@ Licenses:   DBAD License http://philsturgeon.co.uk/code/dbad-license
 @bodycolor: #333333;
 @background: #fff;
 @baseline: 1.5em;
-@max-width: 60em;
+@max-width: 45em;
 
 @basecolor: #000;
 @lightcolor: lighten(@basecolor, 40%);
+/*
 @linkcolor: #2C001E;
+*/
+@linkcolor: @basecolor;
 @linkhovercolor: #F26922;
 @secondarylinkcolor: #999;
 
@@ -220,16 +223,18 @@ abbr {
 
 /* give all the sections some breathing space */
 section section {
-  padding : @baseline 0;
+  padding : 0;
 }
 
 /* HEADER */
 [role="banner"] {
-  text-align : center;
+  text-align    : center;
+  border-bottom : 1px solid @basecolor;
+  max-width         : @max-width;
 
   > section {
 	.container;
-	padding : @baseline;
+	padding : @baseline * .5 0;
   }
 
   h1 {
@@ -300,8 +305,18 @@ article footer,
 }
 
 /* reduce size of h1 on article lists */
-.article-intro h1 {
-  font-size : 1.5em;
+.article-intro,
+.full-article {
+
+h1 {
+  font-size : @baseline;
+}
+
+  header,
+  footer{
+	display: inline-block;
+  }
+
 }
 
 /* box the comments */
@@ -312,25 +327,25 @@ article footer,
 
 /* SITE FOOTER */
 [role="contentinfo"] {
-
-  border-top : 1px solid #000000;
+  max-width      : @max-width;
+  border-top : 1px solid @basecolor;
 
   section {
 	.container;
 	padding       : @baseline;
 	margin-bottom : 0;
-	font-size: .8em;
+	font-size     : .8em;
   }
 
   small {
-	display : block;
-	margin  : .25em 0;
-	font-size: 1em;
+	display   : block;
+	margin    : .25em 0;
+	font-size : 1em;
   }
 }
 
 .thumbnail img {
-  background-color           : white;
+  background-color           : @background;
   -webkit-border-radius      : 100px;
   -moz-border-radius         : 100px;
   -ms-border-radius          : 100px;
@@ -384,6 +399,10 @@ article footer,
 
 @media only screen and (min-width : 45em) {
 
+  .container {
+	/*margin: 0 auto;*/
+  }
+
   [role="banner"] > section,
   [role="contentinfo"] > section {
 	padding : .5 * @baseline @baseline;
@@ -392,13 +411,13 @@ article footer,
   article header {
 	display        : inline-block;
 	vertical-align : middle;
-	width          : 61%;
+	width          : 67%;
   }
 
   article footer {
 	display        : inline-block;
-	vertical-align : middle;
-	width          : 38.2%;
+	/*vertical-align : middle;*/
+	width          : 32.2%;
 	text-align     : right;
   }
 
