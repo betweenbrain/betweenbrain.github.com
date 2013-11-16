@@ -16,7 +16,7 @@ auto: true
 # https://github.com/mojombo/jekyll/wiki/Permalinks
 permalink: post/:title
 
-version: 0.1
+version: 0.2
 
 # Pagination
 paginate: 5

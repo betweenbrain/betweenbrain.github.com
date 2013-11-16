@@ -444,6 +444,9 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+/*
+@linkcolor: #2C001E;
+*/
 .visuallyhidden.focusable:active, .visuallyhidden.focusable:focus {
   position: static;
   clip: auto;
@@ -467,9 +470,6 @@ input,
 select,
 textarea {
   color: #333333;
-}
-html {
-  background: #000000;
 }
 body {
   font-size: 100%;
@@ -498,7 +498,7 @@ body {
    Links
    ========================================================================== */
 a {
-  color: #2c001e;
+  color: #000000;
   text-decoration: none;
   position: relative;
   font-weight: bold;
@@ -574,14 +574,19 @@ blockquote:before, blockquote:after {
   content: none;
 }
 .logo {
+  display: block;
   position: relative;
+  text-align: center;
+  font-style: italic;
+}
+.logo a {
+  color: #999999;
+  font-weight: normal;
 }
 .logo small {
-  display: block;
-  position: absolute;
-  top: 1.15em;
-  left: 7.5em;
-  color: #f26922;
+  font-size: .5em;
+  position: relative;
+  left: -0.5em;
 }
 p[data-pullquote]:before {
   font-size: 1.3em;
@@ -620,22 +625,17 @@ abbr {
    ========================================================================== */
 /* give all the sections some breathing space */
 section section {
-  padding: 1.5em 0;
+  padding: 0;
 }
 /* HEADER */
 [role="banner"] {
-  background: #000000;
   text-align: center;
-}
-[role="banner"] a {
-  color: #ffcc00;
-}
-[role="banner"] a:hover {
-  color: #f26922;
+  border-bottom: 1px solid #000000;
+  max-width: 45em;
 }
 [role="banner"] > section {
-  max-width: 60em;
-  padding: 1.5em;
+  max-width: 45em;
+  padding: 0.75em 0;
 }
 [role="banner"] h1 {
   margin: 0;
@@ -656,7 +656,7 @@ nav ul {
 /* MAIN CONTENT */
 /* the main content area */
 [role="main"] > section {
-  max-width: 60em;
+  max-width: 45em;
   padding: 0 1.5em 1.5em;
 }
 /* article banner image */
@@ -691,8 +691,14 @@ article footer, .readmore {
   text-align: right;
 }
 /* reduce size of h1 on article lists */
-.article-intro h1 {
+.article-intro h1, .full-article h1 {
   font-size: 1.5em;
+}
+.article-intro header,
+.full-article header,
+.article-intro footer,
+.full-article footer {
+  display: inline-block;
 }
 /* box the comments */
 .article-comments {
@@ -701,31 +707,22 @@ article footer, .readmore {
 }
 /* SITE FOOTER */
 [role="contentinfo"] {
-  background: #000000;
-  color: #fff;
+  max-width: 45em;
+  border-top: 1px solid #000000;
 }
 [role="contentinfo"] section {
-  max-width: 60em;
+  max-width: 45em;
   padding: 1.5em;
   margin-bottom: 0;
-}
-[role="contentinfo"] a {
-  color: #ffcc00;
-  -webkit-transition: all 0.3s ease;
-  -moz-transition: all 0.3s ease;
-  -ms-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-}
-[role="contentinfo"] a:hover {
-  color: #f26922;
+  font-size: .8em;
 }
 [role="contentinfo"] small {
   display: block;
-  margin: 1em 0;
+  margin: .25em 0;
+  font-size: 1em;
 }
 .thumbnail img {
-  background-color: white;
+  background-color: #ffffff;
   -webkit-border-radius: 100px;
   -moz-border-radius: 100px;
   -ms-border-radius: 100px;
@@ -758,34 +755,81 @@ article footer, .readmore {
     text-align: left;
   }
   .logo, [role="navigation"] {
-    display: inline-block;
-    width: 50%;
     vertical-align: middle;
     margin-right: -0.25em;
   }
   [role="navigation"] ul {
     margin: 0;
-    text-align: right;
+    text-align: center;
   }
   [role="navigation"] li a {
-    padding: .5em 0 .5em 2em;
+    padding: .5em 1em;
   }
 }
 @media only screen and (min-width: 45em) {
+  .container {
+    /*margin: 0 auto;*/
+  
+  }
   [role="banner"] > section, [role="contentinfo"] > section {
     padding: 0.75em 1.5em;
   }
   article header {
     display: inline-block;
     vertical-align: middle;
-    width: 61%;
+    width: 67%;
   }
   article footer {
     display: inline-block;
-    vertical-align: middle;
-    width: 38.2%;
+    /*vertical-align : middle;*/
+  
+    width: 32.2%;
     text-align: right;
   }
+  /*
+    Sticky Footer Solution
+    by Steve Hatcher
+    http://stever.ca
+    http://www.cssstickyfooter.com
+    */
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  html, body {
+    height: 100%;
+  }
+  .wrap {
+    min-height: 100%;
+  }
+  main {
+    overflow: auto;
+    padding-bottom: 90px;
+  }
+  /* must be same height as the footer */
+  footer {
+    position: relative;
+    margin-top: -90px;
+    /* negative value of footer height */
+  
+    height: 90px;
+    clear: both;
+  }
+  /*Opera Fix*/
+  body:before {
+    /* thanks to Maleika (Kohoutec)*/
+  
+    content: "";
+    height: 100%;
+    float: left;
+    width: 0;
+    margin-top: -32767px;
+    /* thank you Erik J - negate effect of float*/
+  
+  }
+  /*
+    End sticky footer
+    */
 }
 @media only screen and (min-width: 90em) {
   body {
