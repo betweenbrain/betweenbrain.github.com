@@ -619,7 +619,7 @@ section section {
   border-top: 5px solid #f7f7f7;
   text-align: center;
   -webkit-box-shadow: inset 0 4px 4px -4px #c9c9c9;
-  box-shadow: 0in set 0 4px 4px -4px #c9c9c9;
+  box-shadow: 0 inset 0 4px 4px -4px #c9c9c9;
 }
 [role="banner"] > section {
   max-width: 60em;
@@ -850,8 +850,8 @@ body:before {
     content: " (" attr(title) ")";
   }
   /*
-       * Don't show links for images, or javascript/internal links
-       */
+   * Don't show links for images, or javascript/internal links
+   */
   .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after {
     content: "";
   }
