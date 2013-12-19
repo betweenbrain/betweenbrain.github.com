@@ -10,20 +10,20 @@ Licenses:   DBAD License http://philsturgeon.co.uk/code/dbad-license
 @import "normalize.less";
 
 // Set some LESS variables
-@bodycolor: #333333;
+@bodycolor: rgb(30, 17, 17);
 @background: #fff;
 @baseline: 1.5em;
 @max-width: 60em;
 
-@basecolor: #000;
+@basecolor: #f7f7f7;
+/*#4183c4; // Github blue of course*/
 @lightcolor: lighten(@basecolor, 40%);
-@linkcolor: #2C001E;
-@linkhovercolor: #F26922;
-@secondarylinkcolor: #FFCC00;
+@linkcolor: #DD4814;
+/*@basecolor*/
 
 @serif        : Garamond, Palatino, "Palatino Linotype", "Hoefler Text", "Times New Roman", serif;
 @sanserif     : "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-@bodyfamily   : @sanserif;
+@bodyfamily   : Ubuntu, Arial, "libra sans", sans-serif;
 @codefamily   : Monaco, Courier New, monospace;
 
 @bordercolor      : rgb(239, 239, 239);
@@ -52,7 +52,7 @@ html {
 }
 
 body {
-  font-size              : 100%;
+  font-size              : 75%;
   line-height            : 1.4;
   font-family            : @bodyfamily;
   background             : @background;
@@ -79,13 +79,13 @@ body {
 
 a {
   color           : @linkcolor;
+  text-shadow     : 1px 1px 1px #c9c9c9;
   text-decoration : none;
   position        : relative;
-  font-weight     : bold;
   .transition;
 
   &:hover {
-	color   : @linkhovercolor;
+	color   : darken(@linkcolor, 10%);
 	outline : 0;
   }
 
@@ -161,19 +161,6 @@ blockquote:after {
   content : none;
 }
 
-.logo {
-
-  position: relative;
-
-  small{
-	display: block;
-	position: absolute;
-	top: 1.15em;
-	left: 7.5em;
-	color: @linkhovercolor;
-  }
-}
-
 p[data-pullquote]:before {
   font-size : 1.3em;
   margin    : 0 0 @baseline @baseline;
@@ -221,16 +208,22 @@ section section {
 
 /* HEADER */
 [role="banner"] {
-  background : @basecolor;
-  text-align : center;
+  text-align         : center;
+  border-top         : 1px solid #c9c9c9;
+  -webkit-box-shadow : inset 0 4px 4px -4px #c9c9c9;
+  box-shadow         : 0 inset 0 4px 4px -4px #c9c9c9;
 
-  a {
-	color : @secondarylinkcolor;
-	&:hover {
-	  color : @linkhovercolor;
-	}
-
+  /*
+  &:before {
+	content    : "";
+	display    : block;
+	height: 5px;
+	background: #F7F7F7;
+	border-bottom         : 1px solid #c9c9c9;
+	-webkit-box-shadow : inset 0 4px 4px -4px #c9c9c9;
+ 	box-shadow         : 0 inset 0 4px 4px -4px #c9c9c9;
   }
+  */
 
   > section {
 	.container;
@@ -311,14 +304,16 @@ article footer,
 
 /* box the comments */
 .article-comments {
-  background : @background;
+  background : lighten(@basecolor, 40%);
   padding    : @baseline;
 }
 
 /* SITE FOOTER */
 [role="contentinfo"] {
-  background : @basecolor;
-  color: #fff;
+  background         : @basecolor;
+  -webkit-box-shadow : inset 0 4px 8px -4px #c9c9c9;
+  box-shadow         : 0 set 0 4px 8px -4px #c9c9c9;
+  border-top         : 1px solid #c9c9c9;
 
   section {
 	.container;
@@ -327,42 +322,14 @@ article footer,
   }
 
   a {
-	color : @secondarylinkcolor;
-	.transition;
-
-	&:hover {
-	  color : @linkhovercolor;
-	}
+	color : @linkcolor;
   }
 
   small {
 	display : block;
-	margin  : 1em 0;
+	margin  : .5em 0;
   }
 }
-
-.thumbnail img {
-  background-color           : white;
-  -webkit-border-radius      : 100px;
-  -moz-border-radius         : 100px;
-  -ms-border-radius          : 100px;
-  -o-border-radius           : 100px;
-  border-radius              : 100px;
-  border-top-left-radius     : 100px;
-  border-top-right-radius    : 100px;
-  border-bottom-left-radius  : 100px;
-  border-bottom-right-radius : 100px;
-  position                   : relative;
-  text-align                 : center;
-  overflow                   : hidden;
-  -webkit-background-clip    : padding-box;
-  -moz-background-clip       : padding;
-  background-clip            : padding-box;
-  width                      : 165px !important;
-  border                     : 5px solid white;
-  float                      : left;
-}
-
 
 /* ==========================================================================
    Media Queries
@@ -401,7 +368,7 @@ article footer,
 
   [role="banner"] > section,
   [role="contentinfo"] > section {
-	padding : .5 * @baseline @baseline;
+	padding : 0 @baseline;
   }
 
   article header {
@@ -438,6 +405,75 @@ article footer,
   }
 
 }
+
+.thumbnail img {
+  background-color           : @background;
+  -webkit-border-radius      : 100px;
+  -moz-border-radius         : 100px;
+  -ms-border-radius          : 100px;
+  -o-border-radius           : 100px;
+  border-radius              : 100px;
+  border-top-left-radius     : 100px;
+  border-top-right-radius    : 100px;
+  border-bottom-left-radius  : 100px;
+  border-bottom-right-radius : 100px;
+  position                   : relative;
+  text-align                 : center;
+  overflow                   : hidden;
+  -webkit-background-clip    : padding-box;
+  -moz-background-clip       : padding;
+  background-clip            : padding-box;
+  width                      : 165px !important;
+  border                     : 5px solid white;
+  float                      : left;
+}
+
+/*
+  Sticky Footer Solution
+  by Steve Hatcher
+  http://stever.ca
+  http://www.cssstickyfooter.com
+  */
+* {
+  margin  : 0;
+  padding : 0;
+}
+
+html, body {
+  height : 100%;
+}
+
+.wrap {
+  min-height : 100%;
+}
+
+main {
+  overflow       : auto;
+  padding-bottom : 90px;
+}
+
+/* must be same height as the footer */
+[role="contentinfo"] {
+  position    : relative;
+  margin-top  : -90px; /* negative value of footer height */
+  height      : 90px;
+  clear       : both;
+  padding-top : 12px;
+}
+
+/*Opera Fix*/
+body:before {
+  /* thanks to Maleika (Kohoutec)*/
+  content    : "";
+  height     : 100%;
+  float      : left;
+  width      : 0;
+  margin-top : -32767px; /* thank you Erik J - negate effect of float*/
+}
+
+/*
+  End sticky footer
+  */
 
 /* ==========================================================================
    Print styles.
