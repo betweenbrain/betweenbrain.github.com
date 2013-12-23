@@ -28,4 +28,4 @@ Skype has always had issues on Linux, and recent releases seem to have hindered 
 Such as the web, email does not rely on a single, closed network / service provider. If one email server goes down, not everyone is locked out of communicating with one another. More importantly, you are in control of how you participate in email, whereas Skype is at the mercy of Microsoft.
 
 ## In summary
-Using Skype for collaboration and discussion of leadership topics in not an effective method if you wish for a fully inclusive and effective means of communicating with all of your teams and team members.
+Using Skype for collaboration and discussion of leadership topics in not an effective method if you wish for a fully inclusive and effective means of communicating with all of your teams and team members. If you are currently using Skype within your leadership circle, consider this a plea to step back and reevaluate its use and potential harm being done.
